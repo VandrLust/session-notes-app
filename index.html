@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session Notes — personal Google Drive automation</title>
+<meta name="description" content="A private, single-user tool that turns recorded session audio into written notes. No third-party services, no data sharing.">
+<style>
+  :root {
+    --bg: #0f1115; --panel: #161a21; --ink: #e8eaed; --muted: #9aa4b2;
+    --line: #262c36; --accent: #7aa2f7;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #ffffff; --panel: #f6f7f9; --ink: #14171c; --muted: #5b6572;
+            --line: #e3e6ea; --accent: #2f5bd0; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 72px 24px 96px; }
+  .kicker { color: var(--muted); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 14px; }
+  h1 { font-size: clamp(28px, 5vw, 42px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -.02em; }
+  h2 { font-size: 19px; margin: 42px 0 12px; letter-spacing: -.01em; }
+  p { margin: 0 0 16px; }
+  .lead { font-size: 18px; color: var(--muted); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; margin: 28px 0; }
+  ul { padding-left: 20px; margin: 0 0 16px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); }
+  footer { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  code { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; font-size: 14px; }
+  .flow { color: var(--muted); font-size: 15px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">Personal automation · single user</p>
+  <h1>Session Notes</h1>
+  <p class="lead">A private tool that turns recorded session audio into a written note. It runs entirely on hardware the owner controls. There is no service, no account to create, and no data sharing.</p>
+
+  <div class="card">
+    <p style="margin:0"><strong>In one line:</strong> audio lands in a Google Drive folder, a script on a private home server transcribes and summarises it, and a finished document appears back in the same folder.</p>
+  </div>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Watches one designated Google Drive folder for new audio files.</li>
+    <li>Transcribes the speech with a locally hosted speech-to-text model.</li>
+    <li>Produces a short written note plus a verbatim transcript, as a Word document.</li>
+    <li>Returns the document to the same folder and removes the audio copy from Drive, keeping the master recording on the owner's own storage.</li>
+  </ul>
+
+  <h2>What it accesses</h2>
+  <p>The Google Drive authorisation is granted by the owner to their own Drive account, because Google's per-file permission model cannot see files that another person uploads into a shared folder. The automation only ever reads and writes inside the single folder it is pointed at; it does not browse, index, copy or analyse anything else in the account.</p>
+
+  <h2>What it does not do</h2>
+  <ul>
+    <li>No third-party services, clouds, or model providers receive the audio or the text.</li>
+    <li>No analytics, advertising, tracking, or telemetry.</li>
+    <li>No accounts, no mailing list, no user data collected by this site.</li>
+  </ul>
+
+  <h2>Who runs it</h2>
+  <p>One person, for their own use, on a single household server. It is not offered to the public and has no other users.</p>
+
+  <footer>
+    <p><a href="./privacy.html">Privacy policy</a> · Operated as a personal, non-commercial tool.</p>
+  </footer>
+</main>
+</body>
+</html>
